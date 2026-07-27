@@ -16,8 +16,8 @@
 ## PCI-DSS conventions (card data)
 
 - **CVV/CVV2 is never stored, period** — not encrypted, not transiently, not in a log or debug dump, not even "just while investigating." This applies after authorization with no exception.
-- **Never log or save a full PAN** (the card number) anywhere — app logs, error traces, tickets, context docs. If you must reference one while debugging, mask it first: first 6 + last 4 digits only (`453600XXXXXX0059`), matching PCI DSS's own display-masking rule. Save only the masked form, even in your own working notes.
-- **Test/dev fixtures use published test PANs**, never real captured traffic: Visa `4111111111111111`, Mastercard `5555555555554444` — dummy numbers built for exactly this purpose.
+- **Never log or save a full PAN** (the card number) anywhere — app logs, error traces, tickets, context docs. If you must reference one while debugging, mask it first: keep only the first 6 and last 4 digits, replace everything between with a fixed placeholder character — matching PCI DSS's own display-masking rule. Save only the masked form, even in your own working notes.
+- **Test/dev fixtures use published test PANs**, never real captured traffic. Every card network and payment processor (Visa, Mastercard, Stripe, etc.) publishes dummy numbers built for exactly this purpose, documented in their own developer docs — pull the current one from there rather than hardcoding a card-shaped number into this doc or your own.
 - **Prefer tokenization.** If your payment processor offers a token in place of the PAN, use it — the real number then never touches your systems at all, which is the strongest scope reduction available.
 - **Minimize the card-data environment.** Don't let a test/staging path casually carry real-looking card data through more systems than production actually needs to touch.
 - **A real card number surfacing in a log/ticket/doc during debugging is an incident, not a formatting issue** — mask your own copy, and flag that the source (log storage, ticket system) needs its own retention/redaction review. Don't quietly fix your copy and call it handled.
