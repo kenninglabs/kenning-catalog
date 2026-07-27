@@ -11,6 +11,10 @@
 5. **Verify completion with evidence, not assumption** — a PR number, deploy tag, "DONE/SHIPPED" marker, or another doc confirming delivery. No evidence → keep.
 6. **Commit only when the user asks.** Show the deletion list before committing.
 
+## Fast path — run the audit first
+
+`kenning audit` (built into kenning itself — no separate install) checks the folder-structure compliance this instruction cares about: standard subfolder names, `CXT_`/`memory_`-prefix naming, dangling doc→doc links, un-indexed docs, staleness (docs with no verified-date, or older than ~120 days). Run it before doing anything by hand — `kenning audit --strict` exits non-zero on any hit, `kenning audit` alone reports errors only (warnings are the backlog, not blockers). Fix every ERROR it reports; work down WARNs over time.
+
 ## Workflow
 
 ### 1. Inventory

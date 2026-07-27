@@ -62,3 +62,8 @@ enabled = true
 id = "model-routing"
 category = "workflow"
 enabled = true
+
+[[instruction]]
+id = "using-kenning"
+category = "kenning"
+enabled = true
