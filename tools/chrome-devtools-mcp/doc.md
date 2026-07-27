@@ -9,6 +9,10 @@ Describes the *mechanism* for wiring the official `chrome-devtools-mcp` server t
 - **Launch its own Chrome** (default) — throwaway browser, no existing session.
 - **Attach to a running Chrome** via `--browserUrl=http://127.0.0.1:<port>` — use this when the task needs an already-logged-in session (the login lives in that Chrome's profile, not in the MCP).
 
+## Install
+
+Running Install checks for `npx` and pre-fetches the `chrome-devtools-mcp` npm package (`npx -y chrome-devtools-mcp@latest --version`), so the first real MCP call doesn't pay the download cost. It does not do the Chrome-launch/profile/`.mcp.json` setup below — that's a one-time environment step, not a package install.
+
 ## Prerequisites
 
 - `node` + `npx` on PATH (the server is fetched on first call via `npx -y chrome-devtools-mcp@latest`).

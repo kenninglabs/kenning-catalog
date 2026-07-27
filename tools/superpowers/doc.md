@@ -6,9 +6,13 @@ This is the framework behind every `superpowers:*` skill (`superpowers:brainstor
 
 - **Repo:** https://github.com/obra/superpowers
 - **Marketplace repo:** https://github.com/obra/superpowers-marketplace
-- **Type:** Claude Code plugin (skills bundle) — not an OS CLI, installed via Claude Code's own `/plugin` command, not a shell script.
+- **Type:** Claude Code plugin (skills bundle) — not an OS CLI, but the `claude` CLI itself can install it non-interactively (see Install below), so it doesn't need an interactive `/plugin` session either.
 
-## Install (two options)
+## Install
+
+Running Install checks whether the `claude` CLI is on PATH and, if so, runs `claude plugin install superpowers@claude-plugins-official` non-interactively (falling back to the author's own marketplace if the official one doesn't have it yet). If `claude` isn't found, the script fails with a pointer to install Claude Code first — there's nothing to install the plugin into otherwise.
+
+The interactive equivalent, if you'd rather do it by hand inside a Claude Code session:
 
 ### Option 1 — Anthropic official marketplace (preferred)
 
