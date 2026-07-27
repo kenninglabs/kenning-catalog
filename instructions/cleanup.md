@@ -1,6 +1,12 @@
 # Context/Memory Reduction — Reduce Doc Debt Without Losing Information
 
-**Triggers:** user asks to "clean up" / "reduce" / "prune" / "what can be reduced" for context, memory, plans, specs, or analysis docs under `knowledge/<repo>/`.
+**Triggers:** user asks to "clean up" / "reduce" / "prune" / "what can be reduced" for context, memory, plans, specs, or analysis docs under `knowledge/<repo>/` (or `knowledge/infra/`, `knowledge/incidents/`), or for your own user-authored instructions.
+
+## Scope
+
+- Per repo: `knowledge/<repo>/{context,memory,analysis,superpowers,scripts}/` — the usual case, see the workflow below.
+- Non-repo areas (`knowledge/infra/`, `knowledge/incidents/` — see `file-layout`): same iron rules apply, but skip the folder-structure/naming checks that only make sense for the per-repo shape (they're a different genre by design, not a drift to fix).
+- **User-authored instructions**: the same doc-debt problem applies to instructions you've accumulated over time — one that's now fully covered by a public catalog instruction is a DUPLICATE (merge any unique bits, then delete); one nobody's triggered in months might be STALE or dead. Apply the same classify-then-act workflow to these as to any other doc, just scoped to instruction content instead of context/memory.
 
 ## Iron rules (non-negotiable)
 

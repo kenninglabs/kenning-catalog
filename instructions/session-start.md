@@ -11,7 +11,11 @@ The job: make sure your view of instructions and context matches the latest stat
 3. **Read your instructions fresh from disk every session start**, even if they "look familiar" from a prior session. Disk is current truth; your memory of last session is not.
 4. **If the sync brought in changed instructions, say so before applying them.** One line — what changed, roughly where. The user needs to know the rules shifted under them; don't start silently following different guidance.
 5. **If it brought in changed context/memory indexes, re-read just the indexes** (stay lazy on the bodies) so "what do we already know about X" stays accurate without a full reload.
-6. **Check whether the project's own standard structure is current** (see `file-layout`) — a fast existence/shape check, not a rebuild. If something's missing or looks behind, list it and ask before running any fix (`migrate-docs`, or whatever setup step applies) — these can be slow, so keep them opt-in per session rather than auto-running.
+6. **If this project uses kenning, check its readiness** — a fast existence/status check, not a rebuild:
+   - Is `kenning` itself set up for this hub (`.kenning.toml` present, daemon reachable)? If not, surface that once and offer to run it, don't silently skip kenning-aware behavior for the rest of the session.
+   - Is the index current? `kenning up` (index → register → serve, one command) is the fast-path repair if `kenning status` shows a repo unindexed or behind — offer it, don't run it unasked.
+   - Does the project's own doc structure look unmigrated (loose root `.md`, no `knowledge/<repo>/` taxonomy at all)? If so, `migrate-docs` is the fix — offer it, same opt-in rule.
+   List whatever's needed in one line and ask which to run — these can be slow, keep them opt-in per session rather than auto-running.
 7. **Probe required CLIs once, don't assume.** If the session will plausibly need a tool (this catalog's `tools/`, or anything else the task implies), check once whether it's on PATH. For each missing one, surface exactly one line pointing at how to install it, and wait for acknowledgement before actually running an install — these often touch `sudo`/package managers/shell config, which is out of scope for standing authorization. If everything needed is already present, stay silent about it.
 
 ## Why this order
