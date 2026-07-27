@@ -37,3 +37,13 @@ enabled = true
 id = "subagent-pipeline"
 category = "workflow"
 enabled = true
+
+[[instruction]]
+id = "ai-velocity-forensics"
+category = "audit"
+enabled = true
+
+[[instruction]]
+id = "ai-productivity-methodology"
+category = "audit"
+enabled = true
