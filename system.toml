@@ -67,3 +67,8 @@ enabled = true
 id = "using-kenning"
 category = "kenning"
 enabled = true
+
+[[instruction]]
+id = "secrets-and-pci"
+category = "security"
+enabled = true
