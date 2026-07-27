@@ -1,0 +1,39 @@
+[[instruction]]
+id = "git-auth"
+category = "git"
+enabled = true
+
+[[instruction]]
+id = "worktrees"
+category = "git"
+enabled = true
+
+[[instruction]]
+id = "forward-porting"
+category = "git"
+enabled = true
+
+[[instruction]]
+id = "versioning"
+category = "release"
+enabled = true
+
+[[instruction]]
+id = "helm-charts"
+category = "deploy"
+enabled = true
+
+[[instruction]]
+id = "file-layout"
+category = "workflow"
+enabled = true
+
+[[instruction]]
+id = "cleanup"
+category = "workflow"
+enabled = true
+
+[[instruction]]
+id = "subagent-pipeline"
+category = "workflow"
+enabled = true
