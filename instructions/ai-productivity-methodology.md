@@ -56,6 +56,10 @@ For any task:
 4. **Multiplier** = `T_baseline ÷ T_active`, per row, then aggregated.
 5. **Bracket everything** (low–high), never a single point.
 
+## Surface premise conflicts before applying them
+
+If the user's framing of the question contradicts what the underlying data actually shows (e.g. they ask you to exclude a period assuming no work happened then, but the commit history shows real delivery in that window), stop and show the data before producing the report — don't silently apply a premise you can already see is wrong. A real recurring failure mode: several people assumed to have stopped contributing by a given month turned out to have substantial later delivery once the actual dates were checked. Verify against live data, not against what anyone (including the person asking) remembers.
+
 ## Caveats — state these when they apply
 
 - "Without AI" baselines are estimated, not measured — reasonable brackets, not precision numbers.

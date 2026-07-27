@@ -47,3 +47,8 @@ enabled = true
 id = "ai-productivity-methodology"
 category = "audit"
 enabled = true
+
+[[instruction]]
+id = "migrate-docs"
+category = "workflow"
+enabled = true
