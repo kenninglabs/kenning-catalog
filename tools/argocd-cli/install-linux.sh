@@ -1,4 +1,8 @@
 #!/bin/sh
+if command -v brew >/dev/null 2>&1; then
+  brew install argocd
+  exit 0
+fi
 arch=$(uname -m)
 case "$arch" in
   x86_64) target=amd64 ;;

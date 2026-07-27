@@ -5,6 +5,8 @@ Command-line client for ArgoCD app sync, log tailing, deploy verification, and r
 - **Install docs:** https://argo-cd.readthedocs.io/en/stable/cli_installation/
 - **CLI reference:** https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/
 
+Install prefers Homebrew (macOS and Linux) when it's present, falling back to the platform package manager otherwise -- see this catalog's `brew` tool.
+
 ## Verify
 
 ```bash

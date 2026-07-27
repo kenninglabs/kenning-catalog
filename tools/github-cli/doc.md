@@ -5,6 +5,8 @@ Official GitHub command-line client. Needed for any PR/issue/check/release opera
 - **Install docs:** https://github.com/cli/cli#installation
 - **Manual:** https://cli.github.com/manual/
 
+Install prefers Homebrew (macOS and Linux) when it's present, falling back to the platform package manager otherwise -- see this catalog's `brew` tool.
+
 ## Verify
 
 ```bash
