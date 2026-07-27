@@ -9,6 +9,7 @@ description = "Script that flags likely AI-assisted commits from git-history imp
 [[tool]]
 name = "argocd-cli"
 description = "CLI for ArgoCD app sync, log tailing, deploy verification, and rollout state."
+binary = "argocd"
 
 [[tool]]
 name = "brew"
@@ -33,6 +34,7 @@ description = "Distributed version control; the prerequisite every other repo-to
 [[tool]]
 name = "github-cli"
 description = "Official GitHub CLI for PR, issue, check, and release operations."
+binary = "gh"
 
 [[tool]]
 name = "kenning"
@@ -45,6 +47,7 @@ description = "Claude Code skill that biases toward minimal, lazy-senior-dev imp
 [[tool]]
 name = "postman-cli"
 description = "Official Postman CLI for running collections, workspaces, flows, and API/spec linting."
+binary = "postman"
 
 [[tool]]
 name = "superpowers"
