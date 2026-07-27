@@ -1,0 +1,59 @@
+[[tool]]
+name = "acli"
+description = "Official CLI for Jira/Confluence/Bitbucket — ticket search, transitions, and reports."
+
+[[tool]]
+name = "ai-velocity-forensics"
+description = "Script that flags likely AI-assisted commits from git-history implementation velocity."
+
+[[tool]]
+name = "argocd-cli"
+description = "CLI for ArgoCD app sync, log tailing, deploy verification, and rollout state."
+
+[[tool]]
+name = "brew"
+description = "Package manager for macOS/Linux; most other tools here install through it when present."
+
+[[tool]]
+name = "caveman"
+description = "Claude Code skill that compresses agent output ~65-75% via terse, fragment-based replies."
+
+[[tool]]
+name = "chrome-devtools-mcp"
+description = "MCP server that drives a real Chrome instance over CDP — navigate, click, screenshot, inspect."
+
+[[tool]]
+name = "claude-lsp-plugins"
+description = "Anthropic-verified LSP plugins wiring real language servers into Claude Code per language."
+
+[[tool]]
+name = "git"
+description = "Distributed version control; the prerequisite every other repo-touching tool here depends on."
+
+[[tool]]
+name = "github-cli"
+description = "Official GitHub CLI for PR, issue, check, and release operations."
+
+[[tool]]
+name = "kenning"
+description = "Codebase-understanding engine: code graph, search, and memory/trace store, as CLI + MCP server."
+
+[[tool]]
+name = "ponytail"
+description = "Claude Code skill that biases toward minimal, lazy-senior-dev implementations over new code."
+
+[[tool]]
+name = "postman-cli"
+description = "Official Postman CLI for running collections, workspaces, flows, and API/spec linting."
+
+[[tool]]
+name = "superpowers"
+description = "Skills plugin bundling a full dev methodology: brainstorm, plan, TDD, debug, review, ship."
+
+[[tool]]
+name = "terraform"
+description = "Infrastructure-as-code CLI for provisioning/deprovisioning cloud or local infra from .tf files."
+
+[[tool]]
+name = "uv"
+description = "Fast Python package/project manager from Astral; installs Python CLIs in isolated envs."

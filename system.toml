@@ -2,73 +2,112 @@
 id = "git-auth"
 category = "git"
 enabled = true
+description = "Fix repeated GitHub OAuth prompts by routing github.com credentials through gh instead of GCM."
 
 [[instruction]]
 id = "worktrees"
 category = "git"
 enabled = true
+description = "Treat git worktrees as disposable task scaffolding — remove them once work is committed and pushed."
 
 [[instruction]]
 id = "forward-porting"
 category = "git"
 enabled = true
+description = "Port commits across diverged branches by manual file-by-file re-application, not cherry-pick/merge."
 
 [[instruction]]
 id = "versioning"
 category = "release"
 enabled = true
+description = "Separate stable base releases from pre-release dev-iteration bumps for shared/common libraries."
 
 [[instruction]]
 id = "helm-charts"
 category = "deploy"
 enabled = true
+description = "Push freely to lower Helm/ArgoCD environments; require an explicit diff + ack before touching prod."
 
 [[instruction]]
 id = "file-layout"
 category = "workflow"
 enabled = true
+description = "Where each doc type (context, memory, analysis, plans, scripts, artifacts) belongs in the hub taxonomy."
 
 [[instruction]]
 id = "cleanup"
 category = "workflow"
 enabled = true
+description = "Reduce doc debt in context/memory/plans without ever losing a unique fact — merge before delete."
 
 [[instruction]]
 id = "subagent-pipeline"
 category = "workflow"
 enabled = true
+description = "Plan-then-parallelize multi-agent dev work, splitting tasks by disjoint file sets for safe concurrency."
 
 [[instruction]]
 id = "ai-velocity-forensics"
 category = "audit"
 enabled = true
+description = "Judge whether AI likely produced a commit from git-history velocity, cadence, and message signals."
 
 [[instruction]]
 id = "ai-productivity-methodology"
 category = "audit"
 enabled = true
+description = "Mandatory structured format for reporting AI time-saved/productivity numbers — no bare headline figures."
 
 [[instruction]]
 id = "migrate-docs"
 category = "workflow"
 enabled = true
+description = "One-time inventory-and-classify workflow for consolidating scattered project docs into the taxonomy."
 
 [[instruction]]
 id = "session-start"
 category = "workflow"
 enabled = true
+description = "Sync repo/instructions state and check hub readiness at the start of every session before acting."
 
 [[instruction]]
 id = "model-routing"
 category = "workflow"
 enabled = true
+description = "Calibrate verification depth to a task's risk and reversibility instead of one fixed effort level."
 
 [[instruction]]
 id = "using-kenning"
 category = "kenning"
 enabled = true
+description = "Which kenning MCP tool to reach for (ask/explore/search_code/recall/memory_store) and when."
 
 [[instruction]]
 id = "secrets-and-pci"
 category = "security"
 enabled = true
+description = "Never commit/log secrets or card data (PAN/CVV); rotate on leak; mask PANs in any working notes."
+
+[[instruction]]
+id = "argocd-rest-access"
+category = "infra"
+enabled = true
+description = "Fetch ArgoCD logs and trigger syncs via REST + a browser session token when the CLI/grpc-web path is blocked."
+
+[[instruction]]
+id = "cross-repo-tracing-methodology"
+category = "infra"
+enabled = true
+description = "Correlate a request across services with unlinked per-service trace IDs using shared business fields."
+
+[[instruction]]
+id = "debugging-playbook-template"
+category = "infra"
+enabled = true
+description = "Template for symptom-first, sequenced debugging playbooks with cheap-to-expensive diagnostic steps."
+
+[[instruction]]
+id = "service-communication-map-template"
+category = "infra"
+enabled = true
+description = "Template for documenting service-to-service protocols, URLs, and DBs as one diagram + tables doc."
