@@ -5,6 +5,8 @@
 kenning scaffolds a standard doc taxonomy for every repo it indexes (`kenning init` / the daemon's auto-bootstrap create these automatically — you don't need to `mkdir` them yourself):
 
 ```
+source/<repo>/     the indexed codebase itself (cloned/copied in) — read from,
+                   never written to; this is not your notebook
 knowledge/<repo>/
   context/       runtime / integration / code-behavior / incident findings
   memory/        decisions, preferences, references, bug-fix root causes
@@ -12,7 +14,8 @@ knowledge/<repo>/
   superpowers/
     plans/       implementation plans (written before code)
     specs/       design specs (written before code)
-  scripts/       reusable helper scripts for this repo
+  scripts/       reusable helper scripts/utilities FOR this repo (one-off
+                 data-fix scripts, local dev setup, repo-specific tooling)
 assets/          generated deliverables shared across all repos (reports, data
                  dumps, diagrams, exports — anything you *hand off*, not
                  anything you *reason from*)
@@ -20,11 +23,12 @@ assets/          generated deliverables shared across all repos (reports, data
 
 ## Rules
 
-1. **Context docs** → `knowledge/<repo>/context/CXT_<TOPIC>.md` (uppercase-snake topic, `CXT_` prefix). One topic per file; consolidate rather than duplicate on overlap.
-2. **Memory notes** → `knowledge/<repo>/memory/`. One file per note, or a single self-indexing file with `## <slug>` sections — pick one convention per hub and stay consistent.
-3. **Plans/specs** → `knowledge/<repo>/superpowers/{plans,specs}/YYYY-MM-DD-description.md`. ISO date prefix sorts chronologically.
-4. **Generated artifacts** (reports, exports, diagrams, data dumps) → `assets/`, grouped by responsibility (e.g. `assets/reports/`, `assets/diagrams/`) rather than by feature. Pick a small, stable set of responsibility folders for your project and reuse them — don't spin up a new top-level folder per artifact. If something is analysis you'll load back into context to reason from, it belongs in `knowledge/<repo>/analysis/`, not `assets/` — the distinction is *produced/handed-off* vs. *consumed/reasoned-from*.
-5. **Source code stays untouched.** Never write findings, notes, or generated docs into `source/<repo>/` — that's the indexed codebase, not your notebook.
+1. **Source code** → `source/<repo>/`. Read-only from an assistant's perspective — it's the thing being indexed, not a place to save findings, notes, or generated docs.
+2. **Context docs** → `knowledge/<repo>/context/CXT_<TOPIC>.md` (uppercase-snake topic, `CXT_` prefix). One topic per file; consolidate rather than duplicate on overlap.
+3. **Memory notes** → `knowledge/<repo>/memory/`. One file per note, or a single self-indexing file with `## <slug>` sections — pick one convention per hub and stay consistent.
+4. **Plans/specs** → `knowledge/<repo>/superpowers/{plans,specs}/YYYY-MM-DD-description.md`. ISO date prefix sorts chronologically.
+5. **Reusable scripts/utilities** → `knowledge/<repo>/scripts/`. Anything you write to automate a repeated task against this specific repo (a data-fix script, a local setup helper, a repo-specific lint/codegen wrapper) lives here — not loose in the repo root, not duplicated per-task under `assets/`.
+6. **Generated artifacts** (reports, exports, diagrams, data dumps) → `assets/`, grouped by responsibility (e.g. `assets/reports/`, `assets/diagrams/`) rather than by feature. Pick a small, stable set of responsibility folders for your project and reuse them — don't spin up a new top-level folder per artifact. If something is analysis you'll load back into context to reason from, it belongs in `knowledge/<repo>/analysis/`, not `assets/` — the distinction is *produced/handed-off* vs. *consumed/reasoned-from*.
 
 ## Why a fixed taxonomy
 
