@@ -2,7 +2,9 @@
 
 **Triggers:** "how much time did this save", "time taken for X", "productivity gain", "what's the multiplier", "how long would this have taken without AI" — any direct question about hours, engineering days, or relative pace with vs. without AI, on work you can point to (commits, docs, deployments).
 
-When asked this kind of question, answer in the structured format below, not a single headline number — a bare "3x faster" claim without a breakdown, ranges, or artifacts to anchor it is easy to produce and hard to trust.
+When asked this kind of question, answer in the structured format below, not a single headline number.
+
+**This format stays mandatory even under an active output-compression skill (caveman, ponytail, or similar).** Compress the surrounding prose and caveats, not the numeric structure — the per-work-type rows, the ranges, and the Total row are the actual content being asked for; a compression skill should shrink the words around them, not collapse them into a single unqualified number.
 
 ## The format
 
@@ -68,4 +70,6 @@ If the user's framing of the question contradicts what the underlying data actua
 - Don't extrapolate a single task's multiplier to whole-team productivity.
 - Anchor every claim to an artifact — a commit, a doc, a deployment — never an abstract assertion.
 
-Anything less than this format — a single unqualified number, no ranges, no work-type breakdown — is non-conformant for this kind of question.
+## Why this format
+
+A bare "3x faster" claim without a breakdown, ranges, or artifacts to anchor it is easy to produce and hard to trust — that's the whole reason this format exists. Anything less — a single unqualified number, no ranges, no work-type breakdown — is non-conformant for this kind of question, not just a lighter-weight answer.

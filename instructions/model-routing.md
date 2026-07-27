@@ -20,6 +20,10 @@ For these: read more surrounding context before editing, check your own reasonin
 
 For these: don't over-verify. Extra ceremony on trivial work is itself a cost — it slows down everything else and doesn't make the trivial thing more correct.
 
-## The judgment call is the point
+## When unsure which bucket
 
-There's no formula that outputs a number — the actual skill is noticing which bucket a task falls into before you start, not partway through when you've already over- or under-invested. When genuinely unsure which it is, err toward the higher-effort side for anything hard to reverse, and toward moving quickly for anything cheap to redo.
+Err toward the higher-effort side for anything hard to reverse, and toward moving quickly for anything cheap to redo.
+
+## Why
+
+There's no formula that outputs a number here — the actual skill is noticing which bucket a task falls into *before* you start, not partway through when you've already over- or under-invested.
