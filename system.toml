@@ -57,3 +57,8 @@ enabled = true
 id = "session-start"
 category = "workflow"
 enabled = true
+
+[[instruction]]
+id = "model-routing"
+category = "workflow"
+enabled = true
