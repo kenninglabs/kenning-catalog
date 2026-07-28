@@ -28,7 +28,7 @@ DENY = {
         "permissionDecision": "deny",
         "permissionDecisionReason": (
             "`git push` is blocked by the hub's PreToolUse safety hook "
-            "(tools/hooks/block-git-push.py). Ask the user to push manually."
+            "(claude-code-safety-harness/hooks/block-git-push.py). Ask the user to push manually."
         ),
     }
 }

@@ -1,30 +1,45 @@
 #!/usr/bin/env python3
-"""Idempotently merge the hub's harness safety baseline into .claude/settings.json.
+"""Idempotently merge the harness safety baseline into a hub's .claude/settings.json.
 
-- Unions the curated non-destructive allowlist (tools/harness/allowlist.common.json)
-  into `permissions.allow` — dedupes, preserves existing entries and their order.
-- Installs the git-push PreToolUse deny hook (tools/hooks/block-git-push.py) if no
-  PreToolUse hook already references it.
+Run this directly from wherever it lives (typically the synced catalog cache,
+~/.kenning/catalog/tools/claude-code-safety-harness/) — no copy into the target
+hub needed. `_REPO` is the CURRENT WORKING DIRECTORY, not this script's own
+location: run it FROM the hub root you want to configure.
+
+- Unions the curated non-destructive allowlist (this script's own sibling
+  harness/allowlist.common.json) into `permissions.allow` — dedupes, preserves
+  existing entries and their order.
+- Installs the git-push PreToolUse deny hook if no PreToolUse hook already
+  references it. The hook command is a fixed `$HOME`-relative path (NOT this
+  script's own resolved location) — `$HOME/.kenning/catalog/tools/
+  claude-code-safety-harness/hooks/block-git-push.py` — so the committed
+  settings.json stays portable across teammates/machines (same contract the
+  old `${CLAUDE_PROJECT_DIR}`-based hook had) and picks up future catalog
+  updates to the hook automatically on the next `kenning init`/sync, no
+  reinstall needed. This hard-couples to kenning's `catalog_cache_dir()`
+  staying `~/.kenning/catalog` — if that ever moves, this constant moves too.
 - Preserves every other key in the file. Safe to re-run (no-op once applied).
 
-The committed .claude/settings.json is a SAFETY-ONLY baseline (M1) that carries no absolute
-paths (M2, hook uses ${CLAUDE_PROJECT_DIR}); personal/machine-specific config stays in the
-gitignored .claude/settings.local.json (M3), which Claude Code deep-merges over this file.
+The written .claude/settings.json is a SAFETY-ONLY baseline (M1); personal/
+machine-specific config stays in the gitignored .claude/settings.local.json
+(M3), which Claude Code deep-merges over this file.
 
-Usage: python3 tools/apply_harness_config.py [--check]
+Usage (from the hub root): python3 ~/.kenning/catalog/tools/claude-code-safety-harness/apply_harness_config.py [--check]
   --check : report drift and exit 1 if changes are needed; write nothing (for audits).
 """
 import json
 import os
 import sys
 
-_HERE = os.path.dirname(os.path.abspath(__file__))               # tools/
-_REPO = os.path.abspath(os.path.join(_HERE, ".."))               # hub root
+_HERE = os.path.dirname(os.path.abspath(__file__))               # wherever THIS script lives (allowlist is always its sibling)
+_REPO = os.getcwd()                                               # the hub being configured
 _ALLOWLIST = os.path.join(_HERE, "harness", "allowlist.common.json")
 _SETTINGS = os.path.join(_REPO, ".claude", "settings.json")
 _SCHEMA = "https://json.schemastore.org/claude-code-settings.json"
 _HOOK_SENTINEL = "block-git-push"
-_HOOK_CMD = 'python3 "${CLAUDE_PROJECT_DIR:-.}/tools/hooks/block-git-push.py"'
+_HOOK_CMD = (
+    'python3 "$HOME/.kenning/catalog/tools/claude-code-safety-harness/hooks/block-git-push.py"'
+)
 
 
 def _load(path, default):
